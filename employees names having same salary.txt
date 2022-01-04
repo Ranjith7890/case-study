@@ -1,0 +1,7 @@
+SELECT first_name,salary
+FROM worker_details
+WHERE Salary IN (
+    SELECT Salary
+    FROM worker_details
+    GROUP BY Salary
+    HAVING COUNT(*) > 1) order by  salary desc
